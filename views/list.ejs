@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToDoList</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	<div class="box" id="heading">
+		<h1> <%=ejs%> </h1>
+	</div>
+	
+	<div class="box">
+		<%for(var i=0; i<newItem.length; i++){%>
+		<form action="/delete" method="POST">
+			<div class="item">
+				<input type="checkbox" name="checkbox" value="<%=newItem[i]%>" onchange="this.form.submit()">
+				<p>
+					<%=newItem[i]%>
+				</p>
+			</div>
+		</form>
+		<%}%>
+		<form class="item" method="POST" action="/">
+			<input type="text" name="addItem" placeholder="New Item" autocomplete="off">
+			<button type="submit" name="submit">+</button>
+		</form>
+	</div>
+
+</body>
+</html>
